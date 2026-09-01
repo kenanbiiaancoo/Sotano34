@@ -1,8 +1,8 @@
 # ROADMAP.md
 
-> **Derived from:** `PROJECT_SPEC.md`  
-> **Knowledge source:** `atico34_knowledge.md`  
-> **Rule:** If this file conflicts with `PROJECT_SPEC.md`, the specification wins.  
+> **Derived from:** `specs/PROJECT_SPEC.md`  
+> **Knowledge source:** `docs/atico34_knowledge.md`  
+> **Rule:** If this file conflicts with `specs/PROJECT_SPEC.md`, the specification wins.  
 > **Execution style:** One checkpoint at a time; tests green before continuing.
 
 ---
@@ -11,7 +11,7 @@
 
 For every checkpoint:
 
-1. Read the relevant section of `PROJECT_SPEC.md`.
+1. Read the relevant section of `specs/PROJECT_SPEC.md`.
 2. Implement only the current checkpoint.
 3. Run the checkpoint tests.
 4. Run the existing full test suite.
@@ -35,7 +35,7 @@ Status values:
 
 ## Checkpoint 1 — Scaffold, configuration and `/health`
 
-**Status:** [ ]
+**Status:** [x]
 
 ### Build
 
@@ -220,7 +220,7 @@ unsupported/high-risk -> HUMAN_REVIEW
 sufficient -> diagnosis allowed
 ```
 
-Use category-aware minimum information from `PROJECT_SPEC.md`.
+Use category-aware minimum information from `specs/PROJECT_SPEC.md`.
 
 ### Acceptance
 
@@ -253,7 +253,7 @@ InboundMessage
   -> audit
 ```
 
-Required states/events from `PROJECT_SPEC.md`.
+Required states/events from `specs/PROJECT_SPEC.md`.
 
 ### Acceptance
 
@@ -301,7 +301,7 @@ Any terminal workflow failure must end in:
 FAILED
 ```
 
-The corresponding audit events defined in `PROJECT_SPEC.md` must be appended,
+The corresponding audit events defined in `specs/PROJECT_SPEC.md` must be appended,
 and every event must carry its `workflow_id`.
 
 Diagnosis must not run after a rejected gate.
@@ -408,7 +408,7 @@ The entire mock demo can be presented without opening a terminal except to start
 Load:
 
 ```text
-ATICO34_KNOWLEDGE_PATH=atico34_knowledge.md
+ATICO34_KNOWLEDGE_PATH=docs/atico34_knowledge.md
 ```
 
 Create a small parser/registry sufficient to validate approved service IDs.
@@ -489,7 +489,7 @@ Input:
 ```text
 sanitized structured case
 +
-atico34_knowledge.md
+docs/atico34_knowledge.md
 +
 strict diagnosis instructions
 ```
@@ -515,7 +515,7 @@ For a sufficiently detailed sample case, the provider returns valid structured o
 
 ### Manual scenario
 
-Use the clinic example from `PROJECT_SPEC.md`.
+Use the clinic example from `specs/PROJECT_SPEC.md`.
 
 ---
 
@@ -655,7 +655,7 @@ Expected:
 
 Webhook path should persist work and return promptly.
 
-Use the simple background mechanism defined by `PROJECT_SPEC.md`.
+Use the simple background mechanism defined by `specs/PROJECT_SPEC.md`.
 
 Do not add external queue infrastructure.
 

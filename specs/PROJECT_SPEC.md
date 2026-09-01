@@ -9,13 +9,15 @@
 
 ## 0. Source-of-truth rule
 
-This file is the **authoritative source of truth** for the project.
+`specs/PROJECT_SPEC.md` is the **authoritative source of truth** for the project.
 
 Codex MUST NOT change the architecture, scope, external services, domain contracts, security/privacy decisions, workflow states, or Definition of Done unless this specification is updated first.
 
-`atico34_knowledge.md` is the authoritative knowledge snapshot for Ático34 services and products.
+`docs/atico34_knowledge.md` is the authoritative knowledge snapshot for Ático34 services and products.
 
-`ROADMAP.md` is an execution plan derived from this specification. If `ROADMAP.md` conflicts with this file, **this file wins**.
+`docs/ROADMAP.md` is an execution plan derived from this specification. If `docs/ROADMAP.md` conflicts with this file, **this file wins**.
+
+`specs/personal_specs.md` defines the developer's collaboration preferences for manual guidance versus Codex automation. It does not override this project's architecture or product requirements.
 
 `README.md` is intentionally out of scope until the implementation is finished.
 
@@ -259,9 +261,13 @@ legal-intake-ai/
 ├── requirements.txt
 ├── Dockerfile
 ├── compose.yaml
-├── PROJECT_SPEC.md
-├── atico34_knowledge.md
-├── ROADMAP.md
+├── specs/
+│   ├── PROJECT_SPEC.md
+│   └── personal_specs.md
+├── docs/
+│   ├── ROADMAP.md
+│   ├── Checkpoint 1.md
+│   └── atico34_knowledge.md
 └── README.md                # created only at the end
 ```
 
@@ -290,7 +296,7 @@ OPENAI_DIAGNOSIS_MODEL=gpt-5.6-sol
 TWILIO_ACCOUNT_SID=
 TWILIO_AUTH_TOKEN=
 
-ATICO34_KNOWLEDGE_PATH=atico34_knowledge.md
+ATICO34_KNOWLEDGE_PATH=docs/atico34_knowledge.md
 TIMEZONE=Europe/Madrid
 ```
 
@@ -503,7 +509,7 @@ next_questions: list[str]
 The result MUST include both:
 
 1. a preliminary diagnosis, and
-2. explicit recommendations of relevant Ático34 services/products when supported by `atico34_knowledge.md`.
+2. explicit recommendations of relevant Ático34 services/products when supported by `docs/atico34_knowledge.md`.
 
 Recommended `service_id` values MUST come from the knowledge file. The diagnosis model MUST NOT invent Ático34 products or services.
 
@@ -537,7 +543,7 @@ High-risk or ambiguous cases MUST set `requires_human_review=true`.
 
 # 11. Controlled Ático34 knowledge
 
-`atico34_knowledge.md` is the only approved Ático34-specific knowledge source for the diagnosis step in this demo.
+`docs/atico34_knowledge.md` is the only approved Ático34-specific knowledge source for the diagnosis step in this demo.
 
 The diagnosis service must:
 
@@ -1090,7 +1096,7 @@ The dashboard is a business/demo view; terminal logs are not the primary present
 - Full mock workflow.
 - OpenAI intake.
 - Deterministic completeness gate.
-- `atico34_knowledge.md` loading.
+- `docs/atico34_knowledge.md` loading.
 - OpenAI diagnosis.
 - Explicit Ático34 service recommendations.
 - Dashboard.
@@ -1160,7 +1166,7 @@ OpenAI Intake structured output
     ↓
 deterministic gate
     ↓
-OpenAI Diagnosis + atico34_knowledge.md
+OpenAI Diagnosis + docs/atico34_knowledge.md
     ↓
 preliminary diagnosis
     ↓
@@ -1225,8 +1231,8 @@ The implementation should support this explanation:
 
 Codex MUST:
 
-1. Read this file before implementing a roadmap item.
-2. Read `atico34_knowledge.md` before implementing diagnosis.
+1. Read `specs/PROJECT_SPEC.md` before implementing a roadmap item.
+2. Read `docs/atico34_knowledge.md` before implementing diagnosis.
 3. Work checkpoint by checkpoint.
 4. Keep tests green before moving forward.
 5. Prefer the smallest implementation that satisfies the specification.
@@ -1234,7 +1240,7 @@ Codex MUST:
 7. Keep domain logic out of route handlers.
 8. Never commit secrets.
 9. Never silently expand scope.
-10. Update `ROADMAP.md` with completion state, tests run, and blockers after each checkpoint.
+10. Update `docs/ROADMAP.md` with completion state, tests run, and blockers after each checkpoint.
 11. Ask before changing a decision marked mandatory.
 12. Create `README.md` only after the implementation reaches Definition of Done.
 
@@ -1256,4 +1262,3 @@ These references guide implementation details; they do not override this specifi
   https://www.twilio.com/docs/usage/webhooks/webhooks-security
 - Twilio WhatsApp test environment:  
   https://www.twilio.com/docs/whatsapp/sandbox
-
